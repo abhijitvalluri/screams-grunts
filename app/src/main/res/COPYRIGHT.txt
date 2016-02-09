@@ -1,0 +1,1 @@
+Launcer icon and web icon generated using Roman Nurik's github Android Asset Studio tool at: https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html#foreground.type=text&foreground.space.trim=0&foreground.space.pad=0.05&foreground.text.text=U&foreground.text.font=Webdings&foreColor=f44336%2C0&crop=1&backgroundShape=circle&backColor=fff%2C100&effects=shadow

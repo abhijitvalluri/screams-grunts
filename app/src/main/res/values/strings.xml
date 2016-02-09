@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Screams &amp; Grunts</string>
+    <string name="help_menu_item">App usage help</string>
+    <string name="help_alert_dialog_title">How to use this app</string>
+    <string name="help_alert_dialog_msg">This app consists of a set of funny sounds to
+        startle unsuspecting people. Just click on any button to play the corresponding
+        sound. You can play up to 5 sounds at the same time! Have fun!\n\nNote: The
+        sounds are provided by the user \"plagasul\" at
+        http://www.freesound.org/people/plagasul/packs/3/ and are made
+        available via the Creative Commons license.</string>
+</resources>
