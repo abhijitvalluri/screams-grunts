@@ -14,7 +14,7 @@
    limitations under the License.
 */
 
-package com.abhijitvalluri.android.screams_grunts;
+package com.abhijitvalluri.android.beatbox;
 
 import org.junit.Test;
 

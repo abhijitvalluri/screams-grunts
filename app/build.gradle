@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.2"
 
     defaultConfig {
-        applicationId "com.abhijitvalluri.android.screams_grunts"
+        applicationId "com.abhijitvalluri.android.beatbox"
         minSdkVersion 16
-        targetSdkVersion 23
-        versionCode 2
-        versionName "0.2beta"
+        targetSdkVersion 28
+        versionCode 3
+        versionName "1"
     }
     buildTypes {
         release {
@@ -20,8 +20,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:recyclerview-v7:23.1.1'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
 }
