@@ -35,9 +35,9 @@ public class ScreamsGrunts {
     private static final String SOUNDS_FOLDER = "sample_sounds";
     private static final int MAX_SOUNDS = 5;
 
-    private AssetManager mAssets;
-    private List<Sound> mSounds = new ArrayList<>();
-    private SoundPool mSoundPool;
+    private final AssetManager mAssets;
+    private final List<Sound> mSounds = new ArrayList<>();
+    private final SoundPool mSoundPool;
 
     public ScreamsGrunts(Context context) {
         mAssets = context.getAssets();

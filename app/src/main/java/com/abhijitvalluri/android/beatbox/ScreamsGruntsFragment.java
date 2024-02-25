@@ -17,10 +17,6 @@ package com.abhijitvalluri.android.beatbox;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
@@ -33,6 +29,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -59,10 +61,10 @@ public class ScreamsGruntsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(com.abhijitvalluri.android.beatbox.R.layout.fragment_beat_box, container, false);
+        View view = inflater.inflate(R.layout.fragment_beat_box, container, false);
 
         RecyclerView recyclerView = (RecyclerView) view.
-                findViewById(com.abhijitvalluri.android.beatbox.R.id.fragment_beat_box_recycler_view);
+                findViewById(R.id.fragment_beat_box_recycler_view);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3 /* span count */));
         recyclerView.setAdapter(new SoundAdapter(mScreamsGrunts.getSounds()));
 
@@ -70,21 +72,19 @@ public class ScreamsGruntsFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(com.abhijitvalluri.android.beatbox.R.menu.main_menu, menu);
+    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.main_menu, menu);
 
         checkFirstRun();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case com.abhijitvalluri.android.beatbox.R.id.menu_item_help:
-                showHelpDialog();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menu_item_help) {
+            showHelpDialog();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -110,7 +110,7 @@ public class ScreamsGruntsFragment extends Fragment {
         final TextView message = new TextView(getContext());
 
         final SpannableString s =
-                new SpannableString(getString(com.abhijitvalluri.android.beatbox.R.string.help_alert_dialog_msg));
+                new SpannableString(getString(R.string.help_alert_dialog_msg));
         Linkify.addLinks(s, Linkify.WEB_URLS);
         message.setText(s);
         message.setMovementMethod(LinkMovementMethod.getInstance());
@@ -118,9 +118,9 @@ public class ScreamsGruntsFragment extends Fragment {
         message.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
 
         AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
-                .setTitle(com.abhijitvalluri.android.beatbox.R.string.help_alert_dialog_title)
+                .setTitle(R.string.help_alert_dialog_title)
                 .setView(message)
-                .setIcon(com.abhijitvalluri.android.beatbox.R.drawable.ic_help_popup)
+                .setIcon(R.drawable.ic_help_popup)
                 .setPositiveButton(android.R.string.ok, null)
                 .create();
 
@@ -129,13 +129,13 @@ public class ScreamsGruntsFragment extends Fragment {
 
     private class SoundHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
-        private Button mButton;
+        private final Button mButton;
         private Sound mSound;
 
         public SoundHolder(LayoutInflater inflater, ViewGroup container) {
-            super(inflater.inflate(com.abhijitvalluri.android.beatbox.R.layout.list_item_sound, container, false));
+            super(inflater.inflate(R.layout.list_item_sound, container, false));
 
-            mButton = (Button) itemView.findViewById(com.abhijitvalluri.android.beatbox.R.id.list_item_sound_button);
+            mButton = (Button) itemView.findViewById(R.id.list_item_sound_button);
             mButton.setOnClickListener(this);
         }
 
@@ -152,14 +152,15 @@ public class ScreamsGruntsFragment extends Fragment {
 
     private class SoundAdapter extends RecyclerView.Adapter<SoundHolder> {
 
-        private List<Sound> mSounds;
+        private final List<Sound> mSounds;
 
         public SoundAdapter(List<Sound> sounds) {
             mSounds = sounds;
         }
 
+        @NonNull
         @Override
-        public SoundHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public SoundHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(getActivity());
             return new SoundHolder(inflater, parent);
         }

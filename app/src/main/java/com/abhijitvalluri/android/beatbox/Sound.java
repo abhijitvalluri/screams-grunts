@@ -20,8 +20,8 @@ package com.abhijitvalluri.android.beatbox;
  * Sound class holds all the relevant information regarding sound files to be presented to users.
  */
 public class Sound {
-    private String mAssetPath;
-    private String mName;
+    private final String mAssetPath;
+    private final String mName;
     private Integer mSoundId;
 
     public Sound(String assetPath) {
